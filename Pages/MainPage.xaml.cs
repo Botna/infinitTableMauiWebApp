@@ -2,8 +2,7 @@
 using System.Net.Http;
 using System.Threading.Tasks;
 using infinityTableWebApp.Services;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Essentials;
+using ServiceProvider = infinityTableWebApp.Services.ServiceProvider;
 
 namespace infinityTableWebApp.Pages
 {
@@ -11,10 +10,10 @@ namespace infinityTableWebApp.Pages
     {
         int count = 0;
         private readonly InfinityTableService _infinityTableService;
-        public MainPage(InfinityTableService infTableService)
+        public MainPage()
         {
             InitializeComponent();
-            _infinityTableService = infTableService;
+            _infinityTableService = ServiceProvider.GetService<InfinityTableService>();
         }
 
         private void OnCounterClicked(object sender, EventArgs e)

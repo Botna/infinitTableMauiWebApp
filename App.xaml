@@ -45,7 +45,7 @@
                 <ShellContent ContentTemplate="{DataTemplate page:ColorSchemesPage}"/>
             </FlyoutItem>
             <FlyoutItem Title="Settings" Icon="tab_settings.png">
-                <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+                <ShellContent ContentTemplate="{DataTemplate page:SettingsPage}"/>
             </FlyoutItem>
 
             <TabBar x:Name="PhoneTabs">
@@ -56,7 +56,7 @@
                     <ShellContent ContentTemplate="{DataTemplate page:ColorSchemesPage}"/>
                 </Tab>
                 <Tab Title="Settings" Icon="tab_settings.png">
-                    <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+                    <ShellContent ContentTemplate="{DataTemplate page:SettingsPage}"/>
                 </Tab>
             </TabBar>
         </Shell>

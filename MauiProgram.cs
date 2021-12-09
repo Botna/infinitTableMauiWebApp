@@ -33,9 +33,7 @@ namespace infinityTableWebApp
 			builder.Services.AddSingleton<InfinityTableService>();
 			builder.Services.AddSingleton(RestService.For<IInfinityTableApi>("http://192.168.0.23:5000"));
 
-			//pages
-			builder.Services.AddTransient<HomePage>();
-			builder.Services.AddTransient<MainPage>();
+			//builder.Services.AddTransient<MainPage>();
 		}
 	}
 }

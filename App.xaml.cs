@@ -9,6 +9,8 @@ namespace infinityTableWebApp
             InitializeComponent();
             if (Device.Idiom == TargetIdiom.Phone)
                 Shell.Current.CurrentItem = PhoneTabs;
+
+            
         }
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-
-namespace infinityTableWebApp.Services
+﻿namespace infinityTableWebApp.Services
 {
     public class InfinityTableService
     {
@@ -14,6 +11,11 @@ namespace infinityTableWebApp.Services
         public void SetSolidColor(string color)
         {
             _infTableApi.SetSolidColor(color);  
+        }
+
+        public void SetSolidColor(PixelColor color)
+        {
+            _infTableApi.SetSolidColor(color);
         }
     }
 }
