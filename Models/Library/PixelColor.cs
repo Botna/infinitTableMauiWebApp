@@ -1,4 +1,4 @@
-﻿namespace infinityTableWebApp
+﻿namespace infinityTableWebApp.Models.Library
 {
     public class PixelColor
     {

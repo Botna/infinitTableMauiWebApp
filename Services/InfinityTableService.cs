@@ -1,4 +1,6 @@
-﻿namespace infinityTableWebApp.Services
+﻿using infinityTableWebApp.Models.Library;
+
+namespace infinityTableWebApp.Services
 {
     public class InfinityTableService
     {
@@ -8,14 +10,26 @@
             _infTableApi = infTableApi;
         }
 
-        public void SetSolidColor(string color)
-        {
-            _infTableApi.SetSolidColor(color);  
-        }
-
         public void SetSolidColor(PixelColor color)
         {
-            _infTableApi.SetSolidColor(color);
+            try
+            {
+                _infTableApi.SetSolidColor(color);
+            }
+            catch { }
+        }
+
+        public async Task<bool> PingAPI()
+        {
+            try
+            {
+                await _infTableApi.GetHealth();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
         }
     }
 }

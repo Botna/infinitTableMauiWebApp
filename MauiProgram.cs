@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using infinityTableWebApp.Services;
 using Refit;
 using infinityTableWebApp.Pages;
+using System.Net.Http;
 
 namespace infinityTableWebApp
 {
@@ -29,11 +30,17 @@ namespace infinityTableWebApp
 
 		public static void RegisterServices(MauiAppBuilder builder)
         {
+
 			//services
 			builder.Services.AddSingleton<InfinityTableService>();
-			builder.Services.AddSingleton(RestService.For<IInfinityTableApi>("http://192.168.0.23:5000"));
 
-			//builder.Services.AddTransient<MainPage>();
+			//yes this defeats the purpose.
+			var client = HttpClientFactory.Create();
+
+			client.BaseAddress = new Uri("http://192.168.0.23:5000");
+			client.Timeout = TimeSpan.FromSeconds(2);
+
+			builder.Services.AddSingleton(RestService.For<IInfinityTableApi>(client));
 		}
 	}
 }

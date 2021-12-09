@@ -1,4 +1,6 @@
-﻿namespace infinityTableWebApp.Globals
+﻿using infinityTableWebApp.Models.Library;
+
+namespace infinityTableWebApp.Globals
 {
     public enum Colors
     {

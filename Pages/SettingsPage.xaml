@@ -7,9 +7,16 @@
         ColumnDefinitions="{OnIdiom Phone='*', Default='*,500'}"
         RowDefinitions="*"
         >
-        <Label
-        Text="Im the SettingsPage being displayed"
-        HorizontalOptions="Center"
-        class="Title1" />
+        <Grid RowSpacing="15" RowDefinitions="Auto,*"
+              Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+
+            <Button 
+                Text="Check health"
+                FontAttributes="Bold"
+                Grid.Row="0"
+                SemanticProperties.Hint="pings server to check for 200 response"
+                Clicked="OnButtonClicked"
+                HorizontalOptions="Center" />
+        </Grid>
     </GridLayout>
 </ContentPage>
