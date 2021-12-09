@@ -1,27 +1,64 @@
 ﻿<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:windows="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;assembly=Microsoft.Maui.Controls"
-             xmlns:local="clr-namespace:infinityTableWebApp"
+             xmlns:page="clr-namespace:infinityTableWebApp.Pages"
              x:Class="infinityTableWebApp.App"
              windows:Application.ImageDirectory="Assets">
     <Application.Resources>
-        <ResourceDictionary>
-
-            <Color x:Key="PrimaryColor">#512bdf</Color>
-            <Color x:Key="SecondaryColor">White</Color>
-
-            <Style TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
-                <Setter Property="FontFamily" Value="OpenSansRegular" />
-            </Style>
-
-            <Style TargetType="Button">
-                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
-                <Setter Property="FontFamily" Value="OpenSansRegular" />
-                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryColor}" />
-                <Setter Property="Padding" Value="14,10" />
-            </Style>
-
-        </ResourceDictionary>
+        <ResourceDictionary Source="Resources/Styles/DefaultTheme.xaml"/>
     </Application.Resources>
+    <Application.MainPage>
+        <Shell 
+            FlyoutWidth="68"
+            FlyoutBackgroundColor="Red"
+            FlyoutBehavior="{OnIdiom Phone=Disabled, Default=Locked}">
+
+
+            <Shell.FlyoutHeaderTemplate>
+                <DataTemplate>
+                    <BoxView HeightRequest="68"/>
+                </DataTemplate>
+
+            </Shell.FlyoutHeaderTemplate>
+
+            <Shell.FlyoutFooterTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="68">
+                        <Image Source="tab_settings.png"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                        >
+
+                        </Image>
+                    </Grid>
+                </DataTemplate>
+
+            </Shell.FlyoutFooterTemplate>
+
+
+            <FlyoutItem Title="Colors" Icon="tab_solidcolor.png">
+                <ShellContent ContentTemplate="{DataTemplate page:SolidColorPage}"/>
+            </FlyoutItem>
+            <FlyoutItem Title="Schemes" Icon="tab_colorscheme.png">
+                <ShellContent ContentTemplate="{DataTemplate page:ColorSchemesPage}"/>
+            </FlyoutItem>
+            <FlyoutItem Title="Settings" Icon="tab_settings.png">
+                <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+            </FlyoutItem>
+
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Colors" Icon="tab_solidcolor.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:SolidColorPage}"/>
+                </Tab>
+                <Tab Title="Schemes" Icon="tab_colorscheme.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:ColorSchemesPage}"/>
+                </Tab>
+                <Tab Title="Settings" Icon="tab_settings.png">
+                    <ShellContent ContentTemplate="{DataTemplate page:HomePage}"/>
+                </Tab>
+            </TabBar>
+        </Shell>
+    </Application.MainPage>
 </Application>

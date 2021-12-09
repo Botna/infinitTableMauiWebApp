@@ -54,23 +54,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\MainPage.xaml.cs">
-	    <DependentUpon>MainPage.xaml</DependentUpon>
-	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="Pages\ColorSchemesPage.xaml">
-	    <Generator></Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Pages\HomePage.xaml">
-	    <Generator></Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Pages\SolidColorPage.xaml">
-	    <Generator></Generator>
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Resources\Styles\DefaultTheme.xaml">
-	    <Generator></Generator>
+	    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
